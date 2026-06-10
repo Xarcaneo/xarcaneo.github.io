@@ -89,11 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
         'A simple maze game where players choose between Prim and DFS maze generation algorithms.',
       ],
       images: [
-        'assets/img/developed-games/mazebunny/1.png',
-        'assets/img/developed-games/mazebunny/2.png',
-        'assets/img/developed-games/mazebunny/3.png',
-        'assets/img/developed-games/mazebunny/4.png',
-        'assets/img/developed-games/mazebunny/5.png', 
+        'assets/img/developed-games/MazeBunny/1.png',
+        'assets/img/developed-games/MazeBunny/2.png',
+        'assets/img/developed-games/MazeBunny/3.png',
+        'assets/img/developed-games/MazeBunny/4.png',
+        'assets/img/developed-games/MazeBunny/5.png', 
       ],
       links: [
         { label: 'itch.io Page', url: 'https://xarcane.itch.io/maze-bunny', type: 'primary' }
@@ -108,9 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'A hardcore mobile platformer game made in 2021. A challenging experience where you must collect all points and reach the exit.',
       ],
       images: [
-        'assets/img/developed-games/pixelplatformer/1.png',
-        'assets/img/developed-games/pixelplatformer/2.png',
-        'assets/img/developed-games/pixelplatformer/3.png',
+        'assets/img/developed-games/PixelPlatformer/1.png',
+        'assets/img/developed-games/PixelPlatformer/2.png',
+        'assets/img/developed-games/PixelPlatformer/3.png',
       ],
       links: [
         { label: 'itch.io Page', url: 'https://xarcane.itch.io/pixel-platformer', type: 'primary' }
@@ -125,8 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'A strategy game in development that mixes deckbuilding and roguelike mechanics.',
       ],
       images: [
-        'assets/img/developed-games/deckhexer/1.png',
-        'assets/img/developed-games/deckhexer/2.png',
+        'assets/img/developed-games/Deckhexer/1.png',
+        'assets/img/developed-games/Deckhexer/2.png',
       ],
       links: [
         { label: 'In development', url: '#', type: 'primary' }
@@ -141,9 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'An old-school shooter game made in C++ using the SFML library in 2013.',
       ],
       images: [
-        'assets/img/developed-games/defenders/1.png',
-        'assets/img/developed-games/defenders/2.png',
-        'assets/img/developed-games/defenders/3.png',
+        'assets/img/developed-games/Defenders/1.png',
+        'assets/img/developed-games/Defenders/2.png',
+        'assets/img/developed-games/Defenders/3.png',
       ]
     }
   };
