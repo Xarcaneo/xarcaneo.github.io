@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patryk Dudka | Indie Unity Game Developer Portfolio</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio of Patryk Dudka, an experienced indie Unity Game Developer with 5+ years of experience shipping games (Reus 2, Pythia, BetterWorld Earth) specializing in C#, gameplay systems, FMOD, Steam publishing, and gamepad integration.">
+  <meta name="keywords" content="Patryk Dudka, Unity Developer, Game Developer, Indie Games, C#, FMOD, Gamepad Integration, Steam Publishing, Pythia, Reus 2, BetterWorld Earth">
+  <meta name="author" content="Patryk Dudka">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xarcane.itch.io/">
+  <meta property="og:title" content="Patryk Dudka | Indie Unity Game Developer Portfolio">
+  <meta property="og:description" content="Explore the game portfolio and experimental prototypes of Patryk Dudka, Unity Developer behind Reus 2, Pythia, and BetterWorld Earth.">
+  <meta property="og:image" content="assets/img/developed-games/pythia-cover.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://xarcane.itch.io/">
+  <meta property="twitter:title" content="Patryk Dudka | Indie Unity Game Developer Portfolio">
+  <meta property="twitter:description" content="Explore the game portfolio and experimental prototypes of Patryk Dudka, Unity Developer behind Reus 2, Pythia, and BetterWorld Earth.">
+  <meta property="twitter:image" content="assets/img/developed-games/pythia-cover.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="css/style.css?v=1.0.3">
+
+  <!-- JavaScript (deferred) -->
+  <script defer src="js/main.js?v=1.0.3"></script>
+</head>
+<body>
+
+  <!-- Custom Pixel Cursor -->
+  <div id="custom-cursor" aria-hidden="true"></div>
+
+  <!-- Background Canvas for Starfield -->
+  <canvas id="starfield-canvas" aria-hidden="true"></canvas>
+
+  <!-- Retro Boot / Press Start Overlay -->
+  <!-- COMMENTED OUT: Boot screen disabled to load portfolio directly
+  <section id="retro-boot-screen" class="boot-screen" aria-live="polite">
+    <div class="crt-overlay"></div>
+    <div class="boot-content">
+      <div class="boot-terminal">
+        <p class="boot-line">> PATRYK_OS v1.0.6 INITIALIZING...</p>
+        <p class="boot-line">> DETECTING HARDWARE MODULES...</p>
+        <p class="boot-line">> [OK] UNITY ENGINE CORE v2022.3 LTS</p>
+        <p class="boot-line">> [OK] C# DOTNET INTERPRETER v8.0</p>
+        <p class="boot-line">> [OK] FMOD SPATIAL AUDIO PIPELINE</p>
+        <p class="boot-line">> [OK] STEAM / GOG BUILD PIPELINES</p>
+        <p class="boot-line">> SYSTEM STATUS: 100% READY</p>
+        <p class="boot-line cursor-blink">> AWAITING USER COMMAND...</p>
+      </div>
+      <button id="press-start-btn" class="pixel-btn press-start-btn" aria-label="Start and enter portfolio">
+        <span>PRESS START</span>
+      </button>
+    </div>
+  </section>
+  -->
+
+  <!-- Navigation Bar (Appears after Boot) -->
+  <header id="main-header" class="main-header">
+    <div class="header-container">
+      <a href="#hero" class="site-logo" aria-label="Go to top">
+        <span class="logo-pixel"></span>
+        <span class="logo-text">PATRYK.DEV</span>
+      </a>
+      <nav id="retro-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Games</a></li>
+          <!-- <li><a href="#experiments" class="nav-link">Jams</a></li> -->
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-controls">
+        <button id="sound-toggle" class="sound-toggle-btn muted" aria-label="Toggle retro UI sounds" title="Toggle retro UI sounds">
+          <span class="sound-icon">🔇</span>
+        </button>
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-expanded="false" aria-controls="retro-nav" aria-label="Open navigation menu">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main id="main-content" class="main-content">
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-container">
+        <div class="hero-info scroll-reveal">
+          <div class="developer-tag">INDIE DEV / SYSTEMS PROGRAMMER</div>
+          <h1 class="dev-name">Patryk Dudka</h1>
+          <p class="dev-title">Unity Developer</p>
+          <p class="dev-tagline">Building memorable worlds through gameplay, systems, and experimentation.</p>
+          <div class="hero-ctas">
+            <a href="#projects" class="btn btn-primary pixel-corners">
+              <span>View Games</span>
+            </a>
+            <a href="#about" class="btn btn-secondary pixel-corners">
+              <span>About Me</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sokpop Floating Circles Area (Interactive Project triggers) -->
+        <div class="hero-circles-wrapper" aria-hidden="true">
+          <!-- Circle 1: Pink (Reus 2) -->
+          <div class="floating-circle circle-pink" data-parallax-factor="0.08" data-project="reus2">
+            <div class="circle-content">
+              <svg viewBox="0 0 100 100" class="doodle-svg">
+                <!-- Planet base -->
+                <circle cx="50" cy="55" r="24" fill="#ffcdb2" stroke="#0b0c13" stroke-width="3"/>
+                <!-- Planet ring -->
+                <path d="M20 50 Q 50 65, 80 50" fill="none" stroke="#0b0c13" stroke-width="3" stroke-linecap="round"/>
+                <!-- Small tree on top -->
+                <path d="M50 31 L50 20" stroke="#0b0c13" stroke-width="3" stroke-linecap="round"/>
+                <path d="M50 20 Q44 14, 50 8 Q56 14, 50 20" fill="#e5989b" stroke="#0b0c13" stroke-width="2.5"/>
+                <!-- Little face on planet -->
+                <circle cx="43" cy="52" r="3" fill="#0b0c13"/>
+                <circle cx="57" cy="52" r="3" fill="#0b0c13"/>
+                <path d="M48 58 Q 50 60, 52 58" fill="none" stroke="#0b0c13" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span class="circle-label">Reus 2</span>
+            </div>
+          </div>
+
+          <!-- Circle 2: Yellow (Pythia) -->
+          <div class="floating-circle circle-yellow" data-parallax-factor="0.06" data-project="pythia">
+            <div class="circle-content">
+              <svg viewBox="0 0 100 100" class="doodle-svg">
+                <!-- Cork -->
+                <rect x="44" y="16" width="12" height="8" rx="2" fill="#6d6875" stroke="#0b0c13" stroke-width="3"/>
+                <!-- Bottle Neck -->
+                <rect x="41" y="24" width="18" height="12" fill="#ffd29d" stroke="#0b0c13" stroke-width="3"/>
+                <!-- Bottle Body (Round Flask) -->
+                <circle cx="50" cy="60" r="25" fill="#f4f3ef" stroke="#0b0c13" stroke-width="3"/>
+                <!-- Potion level -->
+                <path d="M26 60 Q 50 66, 74 60 C74 72, 26 72, 26 60 Z" fill="#e5989b" stroke="#0b0c13" stroke-width="2"/>
+                <!-- Star/Sparkle -->
+                <path d="M50 42 L52 47 L57 47 L53 50 L55 55 L50 52 L45 55 L47 50 L43 47 L48 47 Z" fill="#ffd29d" stroke="#0b0c13" stroke-width="1.5"/>
+                <!-- Little bubbles -->
+                <circle cx="42" cy="48" r="2" fill="#e5989b"/>
+                <circle cx="58" cy="52" r="3" fill="#e5989b"/>
+              </svg>
+              <span class="circle-label">Pythia</span>
+            </div>
+          </div>
+
+          <!-- Circle 3: Teal (BetterWorld Earth) -->
+          <div class="floating-circle circle-teal" data-parallax-factor="0.05" data-project="betterworld">
+            <div class="circle-content">
+              <svg viewBox="0 0 100 100" class="doodle-svg">
+                <!-- Phone case -->
+                <rect x="28" y="20" width="44" height="60" rx="8" ry="8" fill="#b5e2fa" stroke="#0b0c13" stroke-width="3"/>
+                <!-- Screen -->
+                <rect x="34" y="26" width="32" height="42" fill="#f4f3ef" stroke="#0b0c13" stroke-width="3"/>
+                <!-- Seedling on screen -->
+                <path d="M50 60 Q48 45 44 38" fill="none" stroke="#0b0c13" stroke-width="3" stroke-linecap="round"/>
+                <!-- Left leaf -->
+                <path d="M44 38 Q34 40 36 46 Q46 48 44 38" fill="#e5989b" stroke="#0b0c13" stroke-width="2"/>
+                <!-- Right leaf -->
+                <path d="M44 42 Q54 44 52 50 Q42 52 44 42" fill="#e5989b" stroke="#0b0c13" stroke-width="2"/>
+                <!-- Home button -->
+                <circle cx="50" cy="74" r="3.5" fill="#f4f3ef" stroke="#0b0c13" stroke-width="2"/>
+              </svg>
+              <span class="circle-label">BetterWorld Earth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. About Section -->
+    <section id="about" class="about-section">
+      <div class="section-container">
+        <div class="about-grid">
+          <!-- Text and Bio info -->
+          <div class="about-bio scroll-reveal">
+            <h2 class="section-title">The Developer Behind the Screen</h2>
+            <div class="bio-text">
+              <p>Hi, I'm <strong>Patryk Dudka</strong>! I am an indie-minded Unity Game Developer with <strong>5+ years of experience</strong>. I specialize in turning high-concept gameplay ideas into robust, optimized systems that players love interacting with.</p>
+              <p>My workflow focuses heavily on clean architecture, sound design integrations, and cross-platform publishing pipeline management. Whether building custom localization structures, designing deep gamepad behaviors, or squeezing performance out of interface layouts on Steam Deck, I strive to merge technical excellence with handcrafted creative flair.</p>
+              <p>I thrive in the gray area between logic and art—designing flexible C# engines while maintaining a love for weird, retro, and experimental games.</p>
+            </div>
+            
+          <!--
+          <div class="resume-download-wrapper">
+            <a href="assets/Patryk-Dudka-Resume-cv.pdf"
+              class="btn btn-secondary pixel-corners resume-btn"
+              download
+              aria-label="Download Patryk Dudka's CV PDF">
+              <span>Download Resume (PDF)</span>
+            </a>
+          -->
+          </div>
+          
+          <!-- Sticky Notes and Cards layout (Visual display) -->
+          <div class="about-visuals scroll-reveal">
+            <div class="profile-frame-container">
+              <div class="profile-photo-frame">
+                <img src="assets/img/headshot-photo.jpg" alt="Patryk Dudka Portrait Photo" class="profile-img">
+              </div>
+            </div>
+
+            <div class="sticky-notes-container">
+              <!-- Sticky Note 1: Yellow -->
+              <div class="sticky-note note-yellow">
+                <div class="note-pin" aria-hidden="true"></div>
+                <h3 class="note-title">Placeholder</h3>
+                <p>Placeholder text for the first sticky note.</p>
+              </div>
+
+              <!-- Sticky Note 2: Pink -->
+              <div class="sticky-note note-pink">
+                <div class="note-pin" aria-hidden="true"></div>
+                <h3 class="note-title">Placeholder</h3>
+                <p>Placeholder text for the second sticky note.</p>
+              </div>
+
+              <!-- Sticky Note 3: Purple -->
+              <div class="sticky-note note-purple">
+                <div class="note-pin" aria-hidden="true"></div>
+                <h3 class="note-title">Placeholder</h3>
+                <p>Placeholder text for the third sticky note.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills Boards -->
+        <div class="skills-board scroll-reveal">
+          <h3 class="board-title">My Toolbox</h3>
+          <div class="skills-grid">
+            <div class="skill-tag" data-desc="Advanced scripting, clean architectures, and editor scripting.">
+              <span class="skill-icon">🎮</span> <span class="skill-name">Unity &amp; C#</span>
+            </div>
+            <div class="skill-tag" data-desc="Adaptive audio integration, mixing, and sound design implementations.">
+              <span class="skill-icon">🔊</span> <span class="skill-name">FMOD Audio</span>
+            </div>
+            <div class="skill-tag" data-desc="Efficient asset management, dynamic loading, and bundle optimizations.">
+              <span class="skill-icon">📦</span> <span class="skill-name">Addressables</span>
+            </div>
+            <div class="skill-tag" data-desc="Fast, secure serialization for save data, configs, and cross-platform syncing.">
+              <span class="skill-icon">💾</span> <span class="skill-name">Easy Save</span>
+            </div>
+            <div class="skill-tag" data-desc="Branching strategies, CI/CD integrations, and version control structures.">
+              <span class="skill-icon">🐙</span> <span class="skill-name">Git &amp; VCS</span>
+            </div>
+            <div class="skill-tag" data-desc="Smooth controller remapping, vibration feedback, and accessibility systems.">
+              <span class="skill-icon">🕹️</span> <span class="skill-name">Gamepad Integration</span>
+            </div>
+            <div class="skill-tag" data-desc="Dynamic localized text & audio structures supporting multiple languages.">
+              <span class="skill-icon">🌐</span> <span class="skill-name">Localization Systems</span>
+            </div>
+            <div class="skill-tag" data-desc="Database configs, cloud saves, analytics, and authentication setups.">
+              <span class="skill-icon">🔥</span> <span class="skill-name">Firebase &amp; APIs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Featured Projects Section -->
+    <section id="projects" class="projects-section">
+      <div class="section-container">
+        <div class="section-header scroll-reveal">
+          <h2 class="section-title">Featured Games</h2>
+          <p class="section-subtitle">Games I've worked on.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Reus 2 -->
+          <article class="project-card scroll-reveal" data-project="reus2">
+            <div class="card-image-wrapper">
+              <img src="assets/img/developed-games/Reus_2/reus-2-pc-game-steam-cover.jpg" alt="Reus 2 Cover" class="card-img" loading="lazy">
+              <span class="project-status released">Released</span>
+            </div>
+            <div class="card-details">
+              <h3 class="project-title">Reus 2</h3>
+              <p class="project-role">Unity Developer</p>
+              <p class="project-summary">God game sequel developed by Abbey Games.</p>
+              <ul class="card-contrib-preview">
+                <li>.Placeholder..</li>
+                <li>.Placeholder..</li>
+              </ul>
+              <button class="btn btn-secondary pixel-corners card-btn" aria-label="View Reus 2 project details">
+                <span>View Details</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 2: Pythia -->
+          <article class="project-card scroll-reveal" data-project="pythia">
+            <div class="card-image-wrapper">
+              <img src="assets/img/developed-games/pythia-cover.png" alt="Pythia Game Art" class="card-img" loading="lazy">
+              <span class="project-status dev">In Development</span>
+            </div>
+            <div class="card-details">
+              <h3 class="project-title">Pythia</h3>
+              <p class="project-role">Placeholder</p>
+              <p class="project-summary">Placeholder</p>
+              <ul class="card-contrib-preview">
+
+              </ul>
+              <button class="btn btn-secondary pixel-corners card-btn" aria-label="View Pythia project details">
+                <span>View Details</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 3: BetterWorld Earth -->
+          <article class="project-card scroll-reveal" data-project="betterworld">
+            <div class="card-image-wrapper">
+              <img src="assets/img/developed-games/better-world/Minigames-better-world.jpg" alt="BetterWorld Earth Cover" class="card-img" loading="lazy">
+              <span class="project-status mobile">Mobile Game</span>
+            </div>
+            <div class="card-details">
+              <h3 class="project-title">BetterWorld Earth</h3>
+              <p class="project-role">Unity Developer</p>
+              <p class="project-summary">An educational, interactive mobile game containing micro-jams and carbon tracking features.</p>
+              <ul class="card-contrib-preview">
+                <li>API & Firebase database integration</li>
+                <li>Push notifications & cloud syncing</li>
+                <li>App Store & Google Play publishing</li>
+              </ul>
+              <button class="btn btn-secondary pixel-corners card-btn" aria-label="View BetterWorld Earth project details">
+                <span>View Details</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="section-container">
+        <div class="contact-grid">
+          <!-- Contact details & Copy Email -->
+          <div class="contact-info scroll-reveal">
+            <h2 class="section-title">Wanna make something weird?</h2>
+            <p class="contact-intro">I'm always open to discussing gameplay systems design, FMOD integrations, console optimizations, or indie game developer collaborations.</p>
+            
+            <div class="email-copy-box">
+              <span class="email-address">patryk.dudka@hotmail.com</span>
+              <button id="copy-email-btn" class="pixel-btn copy-email-btn" aria-label="Copy email address to clipboard">
+                <span>Copy Email</span>
+              </button>
+            </div>
+
+            <div class="social-links-wrapper">
+              <a href="https://github.com/Xarcaneo" target="_blank" rel="noopener noreferrer" class="social-link-item github" aria-label="GitHub Profile">
+                <svg viewBox="0 0 24 24" class="social-svg">
+                  <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z" fill="currentColor"/>
+                </svg>
+                <span>GitHub</span>
+              </a>
+              <a href="https://xarcane.itch.io/" target="_blank" rel="noopener noreferrer" class="social-link-item itch" aria-label="Itch.io Games Store">
+                <svg viewBox="0 0 24 24" class="social-svg">
+                  <path d="M19.344 6.8c-.808-.093-1.63-.133-2.454-.121-.861.023-1.745.056-2.607.135-.862.078-1.503.206-2.283.275a28.056 28.056 0 0 0-2.283-.275 29.56 29.56 0 0 0-2.607-.135A32.96 32.96 0 0 0 4.656 6.8C2.868 7.009 2 8.214 2 10.428v2.793c0 .882.26 1.696.78 2.441.517.747 1.29 1.282 2.324 1.605 1.77.554 3.738.826 5.908.826 1.956 0 3.864-.239 5.736-.716 1.206-.312 2.057-.866 2.553-1.66.495-.794.743-1.625.743-2.496v-2.793c0-2.214-.868-3.419-2.656-3.628zm-8.85 5.568c-.689 0-1.246-.504-1.246-1.127 0-.623.557-1.127 1.246-1.127s1.246.504 1.246 1.127c0 .623-.557 1.127-1.246 1.127zm4.73 0c-.689 0-1.246-.504-1.246-1.127 0-.623.557-1.127 1.246-1.127s1.246.504 1.246 1.127c0 .623-.557 1.127-1.246 1.127z" fill="currentColor"/>
+                </svg>
+                <span>Itch.io</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive retro computer / quotes terminal -->
+          <div class="contact-visual scroll-reveal" aria-hidden="true">
+            <div class="retro-pc-case">
+              <div class="pc-screen-bezel">
+                <div class="pc-screen">
+                  <div class="screen-scanlines"></div>
+                  <div class="screen-glare"></div>
+                  <div class="screen-terminal-container">
+                    <div class="terminal-header">
+                      <span>MONITOR_1A</span>
+                      <span class="refresh-badge">60HZ</span>
+                    </div>
+                    <div class="terminal-body" id="terminal-quote-display">
+                      <p class="terminal-meta">> RUNNING: QUOTE_MODULE.EXE</p>
+                      <p class="terminal-meta">> FETCHING DEV_IDEAS...</p>
+                      <div class="quote-text-container">
+                        <span class="terminal-prompt">> </span><span id="active-quote-text" class="quote-text">Games are systems disguised as stories.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="pc-grille">
+                <span class="grille-slot"></span>
+                <span class="grille-slot"></span>
+                <span class="grille-slot"></span>
+                <span class="pc-led"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <p class="footer-copy">&copy; 2026 Patryk Dudka. Built with HTML, CSS, and Vanilla JS.</p>
+        <p class="footer-extra">Press key <kbd>K</kbd> <kbd>O</kbd> <kbd>N</kbd> <kbd>A</kbd> <kbd>M</kbd> <kbd>I</kbd> for system diagnostic.</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Keyboard Accessible Dialog Modal for Project Details -->
+  <div id="project-modal" class="modal-overlay hidden" aria-hidden="true" role="dialog">
+    <div class="modal-backdrop" id="modal-close-backdrop"></div>
+    <div class="modal-box pixel-corners" tabIndex="-1">
+      <button id="modal-close-btn" class="modal-close-btn" aria-label="Close details dialog">&times;</button>
+      
+      <div class="modal-body">
+        <div class="modal-gallery-column">
+          <!-- Main Carousel Screen -->
+          <div class="carousel-container">
+            <button class="carousel-nav prev-btn" aria-label="Previous slide">&#10094;</button>
+            <div class="carousel-slides" id="modal-carousel-slides">
+              <!-- Slides inserted by JS -->
+            </div>
+            <button class="carousel-nav next-btn" aria-label="Next slide">&#10095;</button>
+          </div>
+          <!-- Thumbnail Row -->
+          <div class="carousel-thumbnails" id="modal-carousel-thumbnails">
+            <!-- Thumbnails inserted by JS -->
+          </div>
+        </div>
+
+        <div class="modal-details-column">
+          <div class="modal-meta-row">
+            <span id="modal-project-status" class="project-status">Released</span>
+          </div>
+          <h2 id="modal-project-title" class="modal-project-title">Project Title</h2>
+          <p id="modal-project-role" class="modal-project-role">Unity Developer</p>
+          
+          <div class="modal-divider"></div>
+
+          <div class="modal-description-section">
+            <h4>Contributions &amp; Achievements:</h4>
+            <ul id="modal-project-contribs" class="modal-contrib-list">
+              <!-- Contribs inserted by JS -->
+            </ul>
+          </div>
+
+          <div class="modal-divider"></div>
+
+          <div class="modal-links-row" id="modal-links-row">
+            <!-- Links inserted by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
