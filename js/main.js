@@ -14,11 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
       role: 'Unity Developer',
       status: 'Released',
       statusClass: 'released',
-      contributions: [
-        '.Placeholder.',
-        '.Placeholder.',
-        '.Placeholder.',
-        '.Placeholder.'
+      description: [
+        'Shape worlds with your godly titans. Make symbiotic ecosystems and inspire humanity with your creations. Their achievements unlock new possibilities. Make different planets for different human spirits, and fill the universe with life!'
       ],
       images: [
         'assets/img/developed-games/Reus_2/reus-2-pc-game-steam-cover.jpg',
@@ -35,14 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
       role: 'Unity Developer',
       status: 'In Development',
       statusClass: 'dev',
-      contributions: [
-        '.Placeholder.',
+      description: [
+        'New strategy game in development'
       ],
       images: [
-        'assets/img/developed-games/pythia-cover.png'
+        'assets/img/developed-games/Pythia/Cover.png'
       ],
       links: [
-        { label: 'Itch.io Devlog', url: 'https://xarcane.itch.io/', type: 'secondary' }
+        { label: 'Steam Community Announcement', url: 'https://steamcommunity.com/groups/abbeygames/announcements/detail/631191808874907893', type: 'secondary' }
       ]
     },
     betterworld: {
@@ -50,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
       role: 'Unity Developer',
       status: 'Mobile Game',
       statusClass: 'mobile',
-      contributions: [
-        '.Placeholder.',
+      description: [
+        'A mobile city builder focused on education about sustainability and environmental impact. Players build and manage a city while learning how their decisions affect the world.'
       ],
       images: [
         'assets/img/developed-games/better-world/Minigames-better-world.jpg',
@@ -60,6 +57,93 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       links: [
         { label: 'Website Link', url: 'https://betterworld.earth/', type: 'primary' }
+      ]
+    },
+    the_abyss: {
+      title: 'The Abyss',
+      role: 'Unity Developer',
+      status: 'Released',
+      statusClass: 'released',
+      description: [
+        'A Metroidvania-style action-adventure game set inside a mystical fortress on the border of the Abyss.',
+        'Players explore interconnected areas, fight enemies, solve puzzles, and uncover the mystery behind the reawakening of the Abyss portal.'
+      ],
+      images: [
+        'assets/img/developed-games/the-abyss/1.png',
+        'assets/img/developed-games/the-abyss/2.png',
+        'assets/img/developed-games/the-abyss/3.png',
+        'assets/img/developed-games/the-abyss/4.png',
+        'assets/img/developed-games/the-abyss/5.png',
+        'assets/img/developed-games/the-abyss/6.png',    
+      ],
+      links: [
+        { label: 'itch.io Page', url: 'https://xarcane.itch.io/the-abyss', type: 'primary' }
+      ]
+    },
+    maze_bunny: {
+      title: 'Maze Bunny',
+      role: 'Unity Developer',
+      status: 'Released',
+      statusClass: 'released',
+      description: [
+        'A simple maze game where players choose between Prim and DFS maze generation algorithms.',
+      ],
+      images: [
+        'assets/img/developed-games/mazebunny/1.png',
+        'assets/img/developed-games/mazebunny/2.png',
+        'assets/img/developed-games/mazebunny/3.png',
+        'assets/img/developed-games/mazebunny/4.png',
+        'assets/img/developed-games/mazebunny/5.png', 
+      ],
+      links: [
+        { label: 'itch.io Page', url: 'https://xarcane.itch.io/maze-bunny', type: 'primary' }
+      ]
+    },
+    pixel_platformer: {
+      title: 'Pixel Platformer',
+      role: 'GODOT Developer',
+      status: 'Mobile Game',
+      statusClass: 'mobile',
+      description: [
+        'A hardcore mobile platformer game made in 2021. A challenging experience where you must collect all points and reach the exit.',
+      ],
+      images: [
+        'assets/img/developed-games/pixelplatformer/1.png',
+        'assets/img/developed-games/pixelplatformer/2.png',
+        'assets/img/developed-games/pixelplatformer/3.png',
+      ],
+      links: [
+        { label: 'itch.io Page', url: 'https://xarcane.itch.io/pixel-platformer', type: 'primary' }
+      ]
+    },
+    deckhexer: {
+      title: 'Deckhexer',
+      role: 'Unity Developer',
+      status: 'In Development',
+      statusClass: 'dev',
+      description: [
+        'A strategy game in development that mixes deckbuilding and roguelike mechanics.',
+      ],
+      images: [
+        'assets/img/developed-games/deckhexer/1.png',
+        'assets/img/developed-games/deckhexer/2.png',
+      ],
+      links: [
+        { label: 'In development', url: '#', type: 'primary' }
+      ]
+    },
+    freedomdefenders: {
+      title: 'Freedom Defenders',
+      role: 'C++ Developer',
+      status: 'Released',
+      statusClass: 'released',
+      description: [
+        'An old-school shooter game made in C++ using the SFML library in 2013.',
+      ],
+      images: [
+        'assets/img/developed-games/defenders/1.png',
+        'assets/img/developed-games/defenders/2.png',
+        'assets/img/developed-games/defenders/3.png',
       ]
     }
   };
@@ -569,27 +653,31 @@ document.addEventListener('DOMContentLoaded', () => {
     statusBadge.textContent = project.status;
     statusBadge.className = `project-status ${project.statusClass}`;
 
-    // Fill contributions bullets
+    // Fill description bullets
     const contribsList = document.getElementById('modal-project-contribs');
     contribsList.innerHTML = '';
-    project.contributions.forEach(contrib => {
-      const li = document.createElement('li');
-      li.textContent = contrib;
-      contribsList.appendChild(li);
-    });
+    if (project.description && project.description.length > 0) {
+      project.description.forEach(desc => {
+        const li = document.createElement('li');
+        li.textContent = desc;
+        contribsList.appendChild(li);
+      });
+    }
 
     // Fill action links
     const linksRow = document.getElementById('modal-links-row');
     linksRow.innerHTML = '';
-    project.links.forEach(link => {
-      const a = document.createElement('a');
-      a.href = link.url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      a.className = `btn pixel-corners ${link.type === 'primary' ? 'btn-primary' : 'btn-secondary'}`;
-      a.innerHTML = `<span>${link.label}</span>`;
-      linksRow.appendChild(a);
-    });
+    if (project.links && project.links.length > 0) {
+      project.links.forEach(link => {
+        const a = document.createElement('a');
+        a.href = link.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.className = `btn pixel-corners ${link.type === 'primary' ? 'btn-primary' : 'btn-secondary'}`;
+        a.innerHTML = `<span>${link.label}</span>`;
+        linksRow.appendChild(a);
+      });
+    }
 
     // Handle Carousel slides setups
     activeProjectImages = project.images;
