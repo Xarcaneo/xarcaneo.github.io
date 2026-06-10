@@ -633,6 +633,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalBox = projectModal.querySelector('.modal-box');
   const modalCloseBtn = document.getElementById('modal-close-btn');
   const modalCloseBackdrop = document.getElementById('modal-close-backdrop');
+  const imageLightbox = document.getElementById('image-lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+  const lightboxPrevBtn = document.getElementById('lightbox-prev-btn');
+  const lightboxNextBtn = document.getElementById('lightbox-next-btn');
 
   let activeCarouselIndex = 0;
   let activeProjectImages = [];
@@ -733,6 +738,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const slide = document.createElement('div');
       slide.className = `carousel-slide ${idx === activeCarouselIndex ? 'active' : ''}`;
       slide.innerHTML = `<img src="${imgSrc}" alt="Project slide image ${idx + 1}" loading="lazy">`;
+      slide.querySelector('img').addEventListener('click', () => openImageLightbox(idx));
       slidesContainer.appendChild(slide);
 
       // Create Thumbnail indicator
@@ -764,21 +770,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  const updateLightboxImage = () => {
+    lightboxImage.src = activeProjectImages[activeCarouselIndex];
+    lightboxImage.alt = `Enlarged project screenshot ${activeCarouselIndex + 1}`;
+  };
+
+  const openImageLightbox = (idx) => {
+    activeCarouselIndex = idx;
+    updateCarouselUI();
+    updateLightboxImage();
+    imageLightbox.classList.remove('hidden');
+    imageLightbox.setAttribute('aria-hidden', 'false');
+  };
+
+  const closeImageLightbox = () => {
+    imageLightbox.classList.add('hidden');
+    imageLightbox.setAttribute('aria-hidden', 'true');
+  };
+
   const carouselNext = () => {
     playSynthesizedSound('hover');
     activeCarouselIndex = (activeCarouselIndex + 1) % activeProjectImages.length;
     updateCarouselUI();
+    if (!imageLightbox.classList.contains('hidden')) updateLightboxImage();
   };
 
   const carouselPrev = () => {
     playSynthesizedSound('hover');
     activeCarouselIndex = (activeCarouselIndex - 1 + activeProjectImages.length) % activeProjectImages.length;
     updateCarouselUI();
+    if (!imageLightbox.classList.contains('hidden')) updateLightboxImage();
   };
 
   // Carousel click handlers
   projectModal.querySelector('.next-btn').addEventListener('click', carouselNext);
   projectModal.querySelector('.prev-btn').addEventListener('click', carouselPrev);
+  lightboxNextBtn.addEventListener('click', carouselNext);
+  lightboxPrevBtn.addEventListener('click', carouselPrev);
+  lightboxCloseBtn.addEventListener('click', closeImageLightbox);
+  imageLightbox.addEventListener('click', (e) => {
+    if (e.target === imageLightbox) closeImageLightbox();
+  });
 
   // Bind Open modal action triggers to project card buttons
   document.querySelectorAll('.project-card').forEach(card => {
@@ -805,6 +837,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Keyboard accessibility listeners (Escape to close, Tab trap)
   document.addEventListener('keydown', (e) => {
     if (projectModal.classList.contains('hidden')) return;
+
+    if (!imageLightbox.classList.contains('hidden')) {
+      if (e.key === 'Escape') {
+        closeImageLightbox();
+      }
+
+      if (e.key === 'ArrowRight') {
+        carouselNext();
+      }
+
+      if (e.key === 'ArrowLeft') {
+        carouselPrev();
+      }
+
+      return;
+    }
 
     if (e.key === 'Escape') {
       closeProjectModal();

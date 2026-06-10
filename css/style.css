@@ -1662,6 +1662,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  cursor: zoom-in;
 }
 
 .carousel-nav {
@@ -1689,6 +1690,77 @@ img {
 
 .prev-btn { left: 10px; }
 .next-btn { right: 10px; }
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 90px;
+  background-color: rgba(3, 4, 8, 0.95);
+  backdrop-filter: blur(6px);
+  opacity: 1;
+  transition: opacity var(--transition-normal);
+}
+
+.image-lightbox.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border: 3px solid var(--border-playful);
+  background-color: #000;
+  box-shadow: 10px 10px 0 rgba(0,0,0,0.5);
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 22px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 3rem;
+  line-height: 1;
+  cursor: none;
+  z-index: 2;
+}
+
+.lightbox-close-btn:hover {
+  color: var(--accent-pink);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--border-playful);
+  background-color: rgba(11, 12, 19, 0.8);
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  z-index: 2;
+}
+
+.lightbox-nav:hover {
+  background-color: var(--accent-pink);
+  border-color: var(--accent-pink);
+}
+
+.lightbox-prev-btn { left: 28px; }
+.lightbox-next-btn { right: 28px; }
 
 .carousel-thumbnails {
   display: flex;
@@ -2195,6 +2267,24 @@ kbd {
   
   .carousel-container {
     height: 180px;
+  }
+  
+  .image-lightbox {
+    padding: 60px 16px;
+  }
+  
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+  }
+  
+  .lightbox-prev-btn { left: 12px; }
+  .lightbox-next-btn { right: 12px; }
+  
+  .lightbox-close-btn {
+    top: 14px;
+    right: 18px;
   }
   
   .social-links-wrapper {
