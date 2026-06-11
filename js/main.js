@@ -141,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'An old-school shooter game made in C++ using the SFML library in 2013.',
       ],
       images: [
-        'assets/img/developed-games/Defenders/1.png',
         'assets/img/developed-games/Defenders/2.png',
         'assets/img/developed-games/Defenders/3.png',
       ]
