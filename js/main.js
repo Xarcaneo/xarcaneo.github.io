@@ -59,6 +59,40 @@ document.addEventListener('DOMContentLoaded', () => {
         { label: 'Website Link', url: 'https://betterworld.earth/', type: 'primary' }
       ]
     },
+    LVNL: {
+      title: 'LVNL',
+      role: 'Unity Developer',
+      status: 'Mobile Game',
+      statusClass: 'mobile',
+      description: [
+        'Enter the world of air traffic control with the "Take Control of the Tower" game, created on behalf of Luchtverkeersleiding Nederland (LVNL).'
+      ],
+      images: [
+        'assets/img/developed-games/LVNL/1.gif',
+        'assets/img/developed-games/LVNL/2.gif',
+        'assets/img/developed-games/LVNL/3.gif',
+        'assets/img/developed-games/LVNL/4.gif',
+        'assets/img/developed-games/LVNL/5.gif'
+      ],
+      links: [
+        { label: 'Website Link', url: 'https://www.d-tt.nl/en/apps/lvnl-take-control-of-the-tower', type: 'primary' }
+      ]
+    },
+    jim_movebooks: {
+      title: 'Jim Movebooks',
+      role: 'Unity Developer',
+      status: 'Unity App',
+      statusClass: 'app',
+      description: [
+        'Digital movement books with exciting stories: a hit at nurseries.'
+      ],
+      images: [
+        'assets/img/developed-games/Movebooks/1.gif',
+      ],
+      links: [
+        { label: 'Website Link', url: 'https://www.d-tt.nl/en/apps/friends-call-me-jim', type: 'primary' }
+      ]
+    },
     the_abyss: {
       title: 'The Abyss',
       role: 'Unity Developer',

@@ -941,6 +941,11 @@ img {
   color: var(--bg-color);
 }
 
+.project-status.app {
+  background-color: var(--accent-cream);
+  color: var(--bg-color);
+}
+
 .card-details {
   padding: 24px;
   display: flex;
