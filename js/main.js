@@ -819,6 +819,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeImageLightbox = () => {
     imageLightbox.classList.add('hidden');
     imageLightbox.setAttribute('aria-hidden', 'true');
+    certificateMode = false;
   };
 
   const carouselNext = () => {
@@ -861,6 +862,23 @@ document.addEventListener('DOMContentLoaded', () => {
         openProjectModal(pKey);
       });
     }
+  });
+
+  // Certificate Image Zoom Functionality
+  const certificateImages = [
+    'assets/img/Diplomas/Diploma_1.png',
+    'assets/img/Diplomas/Diploma_2.png'
+  ];
+
+  let certificateMode = false;
+
+  document.querySelectorAll('.clickable-certificate').forEach((cert, idx) => {
+    cert.addEventListener('click', () => {
+      certificateMode = true;
+      activeProjectImages = certificateImages;
+      activeCarouselIndex = idx;
+      openImageLightbox(idx);
+    });
   });
 
   // Close modal click triggers

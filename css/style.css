@@ -845,6 +845,144 @@ img {
   font-size: 0.95rem;
 }
 
+/* Certificates & Diplomas Board Display */
+.certificates-board {
+  margin-top: 70px;
+  background-color: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.certificate-card {
+  background-color: var(--bg-color);
+  border: 2px solid var(--border-playful);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all var(--transition-bounce);
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-card:hover {
+  border-color: var(--accent-pink);
+  transform: translateY(-6px) rotate(-1deg);
+  box-shadow: 8px 8px 0 rgba(229, 152, 155, 0.2);
+}
+
+.certificate-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-bottom: 2px solid var(--border-playful);
+}
+
+.certificate-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.certificate-card:hover .certificate-img {
+  transform: scale(1.05);
+}
+
+.certificate-details {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-title {
+  font-family: var(--font-headings);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--accent-pink);
+}
+
+.certificate-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Clickable Certificate Images */
+.clickable-certificate {
+  cursor: pointer;
+  position: relative;
+}
+
+.clickable-certificate::after {
+  content: '🔍';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.clickable-certificate:hover::after {
+  opacity: 1;
+}
+
+.clickable-certificate:hover .certificate-img {
+  filter: brightness(0.8);
+}
+
+/* Project Subsections - Professional & Personal */
+.projects-subsection {
+  margin-bottom: 60px;
+}
+
+.subsection-title {
+  font-size: 1.5rem;
+  margin-bottom: 32px;
+  text-align: center;
+  font-family: var(--font-headings);
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.subsection-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.professional-title {
+  color: var(--accent-yellow);
+}
+
+.professional-title::after {
+  background-color: var(--accent-yellow);
+  box-shadow: 0 0 12px rgba(255, 205, 178, 0.4);
+}
+
+.personal-title {
+  color: var(--accent-pink);
+}
+
+.personal-title::after {
+  background-color: var(--accent-pink);
+  box-shadow: 0 0 12px rgba(229, 152, 155, 0.4);
+}
+
 /* --------------------------------------------------------------------------
    7. Featured Projects Section
    -------------------------------------------------------------------------- */
@@ -2308,5 +2446,20 @@ kbd {
   .social-link-item {
     width: 100%;
     justify-content: center;
+  }
+
+  /* Certificates grid on mobile */
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Subsection titles on mobile */
+  .subsection-title {
+    font-size: 1.2rem;
+  }
+
+  /* Projects subsection on mobile */
+  .projects-subsection {
+    margin-bottom: 40px;
   }
 }
