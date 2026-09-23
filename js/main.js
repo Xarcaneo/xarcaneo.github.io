@@ -177,6 +177,26 @@ document.addEventListener('DOMContentLoaded', () => {
       images: [
         'assets/img/developed-games/Defenders/2.png',
         'assets/img/developed-games/Defenders/3.png',
+      ],
+      links: [
+        { label: 'Download', url: 'assets/download/Freedom%20Defenders.rar', type: 'primary' }
+      ]
+    },
+    rider: {
+      title: 'Rider',
+      role: 'Game Developer',
+      status: 'Released',
+      statusClass: 'released',
+      description: [
+        'Metroidvania prototype created fully in C++. I focused on implementing the **player controller**, **enemy behaviors**, **inventory system**, and **level transitions**. Everything was fully loaded from text files.',
+      ],
+      images: [
+        'assets/img/developed-games/Rider/1.png',
+        'assets/img/developed-games/Rider/2.png',
+        'assets/img/developed-games/Rider/3.png',
+      ],
+      links: [
+        { label: 'Download', url: 'assets/download/Rider.rar', type: 'primary' }
       ]
     }
   };
@@ -697,7 +717,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (project.description && project.description.length > 0) {
       project.description.forEach(desc => {
         const li = document.createElement('li');
-        li.textContent = desc;
+        // Convert **bold** markdown syntax to <strong> tags
+        li.innerHTML = desc.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
         contribsList.appendChild(li);
       });
     }

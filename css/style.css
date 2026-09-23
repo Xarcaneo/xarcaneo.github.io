@@ -986,6 +986,15 @@ img {
   box-shadow: 0 0 12px rgba(229, 152, 155, 0.4);
 }
 
+.achievement-title {
+  color: var(--accent-teal);
+}
+
+.achievement-title::after {
+  background-color: var(--accent-teal);
+  box-shadow: 0 0 12px rgba(181, 226, 250, 0.4);
+}
+
 /* --------------------------------------------------------------------------
    7. Featured Projects Section
    -------------------------------------------------------------------------- */
@@ -1062,10 +1071,18 @@ img {
   transform: scale(1.06);
 }
 
-.project-status {
+.status-badges-wrapper {
   position: absolute;
   top: 12px;
   right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+  z-index: 2;
+}
+
+.project-status {
   font-family: var(--font-pixel);
   font-size: 0.7rem;
   font-weight: 700;
@@ -1073,15 +1090,16 @@ img {
   border: 2px solid var(--bg-color);
   border-radius: 4px;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.project-status.released {
+.project-status.unity {
   background-color: var(--accent-yellow);
   color: var(--bg-color);
 }
 
-.project-status.dev {
-  background-color: var(--accent-pink);
+.project-status.desktop {
+  background-color: #a29bfe;
   color: var(--bg-color);
 }
 
@@ -1090,8 +1108,23 @@ img {
   color: var(--bg-color);
 }
 
-.project-status.app {
+.project-status.godot {
+  background-color: #667db6;
+  color: var(--text-primary);
+}
+
+.project-status.webgl {
   background-color: var(--accent-cream);
+  color: var(--bg-color);
+}
+
+.project-status.cpp {
+  background-color: #0055ff;
+  color: var(--text-primary);
+}
+
+.project-status.sfml {
+  background-color: #50c878;
   color: var(--bg-color);
 }
 
@@ -1110,6 +1143,60 @@ img {
   font-family: var(--font-pixel);
   font-size: 0.85rem;
   color: var(--accent-pink);
+}
+
+.project-tags {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 10px 0;
+  flex-wrap: wrap;
+}
+
+.project-tag {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border: 2px solid var(--bg-color);
+  border-radius: 4px;
+  font-family: var(--font-pixel);
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: var(--bg-card);
+  color: var(--accent-pink);
+}
+
+.project-tag.unity {
+  background-color: var(--accent-yellow);
+  color: var(--bg-color);
+}
+
+.project-tag.desktop {
+  background-color: #a29bfe;
+  color: var(--bg-color);
+}
+
+.project-tag.mobile {
+  background-color: var(--accent-teal);
+  color: var(--bg-color);
+}
+
+.project-tag.godot {
+  background-color: #667db6;
+  color: var(--text-primary);
+}
+
+.project-tag.webgl {
+  background-color: var(--accent-cream);
+  color: var(--bg-color);
+}
+
+.project-tag.cpp {
+  background-color: #0055ff;
+  color: var(--text-primary);
+}
+
+.project-tag.sfml {
+  background-color: #50c878;
+  color: var(--bg-color);
 }
 
 .project-summary {
